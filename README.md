@@ -471,7 +471,7 @@ The ```result.html```file is the page where the prediction of the user's input w
 
 The ```result.html``` file is defined in the ```app.py``` script and is rendered via ```the render_template('result.html', prediction=my_prediction)``` line which is returned inside the ```predict``` function. The ```{% if prediction ==1%},{% elif prediction == 0%},{% endif %}```in ```result.htm``` script is used to access the prediction returned from our HTTP request within the HTML file.
 
-### styles.CSS
+### styles.css
 
 The ```styles.css``` file is used in the header section of ```home.html``` and ```result.html``` which determines the shape of these HTML documents. The ```styles.css``` contains the following content:
 
@@ -529,13 +529,25 @@ header h2{
 All the files in the directory is explained above. THe next step is to runthe API by executing the following command in the Terminal:
 
 ```
-cd SMS-Message-Spam-Detector
+cd Spam-Detector
 python app.py
-You should get the following output:
+```
+And the output would be:
+```
+UIT-VPS-26NBR:Spam-Detector srahmani$ python3 app.py
+  import imp
+ * Serving Flask app "app"
+ * Environment: production
+ * Debug mode: on
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ * Debugger is active!
+ * Debugger PIN: 126-674-093
 ```
 
+Now by openning the web browser and navigating to http://127.0.0.1:5000/, a  website with the following content will come up:
 
 <img width="824" alt="Screen Shot 2019-06-26 at 8 35 22 PM" src="https://user-images.githubusercontent.com/45254300/60224871-5a39fa00-9852-11e9-96ac-33d915bdd4a0.png">
+
 
 
 
