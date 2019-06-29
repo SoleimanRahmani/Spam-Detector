@@ -552,6 +552,10 @@ Now by openning the web browser and navigating to http://127.0.0.1:5000/, a  web
 
 As it can be seen, the text can be written in the box. By clicking ```Predict``` botton, the prediction will show up. For instance, by writing the following message in the box:
 
+<img width="802" alt="Screen Shot 2019-06-29 at 7 14 48 PM" src="https://user-images.githubusercontent.com/45254300/60390398-b9427d80-9aa3-11e9-9a2a-8a845e2b09dd.png">
+
+And clicking the ```Predict``` botton, the following prediction will come up:
+
 
 
 
