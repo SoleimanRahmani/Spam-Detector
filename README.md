@@ -9,7 +9,7 @@ A simple Flask API to detect spam or ham messages using following Python package
 The purpose of this repository is to build a web app which classifies spam or ham (non-spam) messages. The goal of this project is to first, build the best machine learning model offline. In the next step, make the model available as a service by creating an API for the model using Flask. Finally, use the service to predict online where the user can submit a message for classification.
 
 
-## Building Machine Learning Model
+## 1. Building Machine Learning Model
 In the first step, several message classifiers have been implemented and compared in ```check.py``` file. The original meta-data file is a collection of messages tagged as spam or ham that can be found in Keggle. The goal in this stage is to use this dataset to build a prediction model that will accurately classify which texts are spam or ham.
 
 ### Libraries
@@ -315,7 +315,7 @@ Actual 1           15          204
 ```
 The best model is Naive Bayes with 98% accuracy. It classifies 91% of non-spam messages correctly (Model precision) and classifies the 93% of spam messages correctly (Model recall).
 
-## Web Application
+## 2. Web Application
 
 In the previous section, the code for classifying messages has been developed. In this section, a web application is developed that consists of a web page with a form field that let users enter a message. After submitting the message to the web application, it will render it on a new page which gives us a result of spam or not spam.
 
@@ -525,7 +525,7 @@ header h2{
     height: 150px;
 }
 ```
-## Web Page
+## 3. Web Page Test
 
 All the files in the directory is explained above. THe next step is to runthe API by executing the following command in the Terminal:
 
