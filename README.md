@@ -8,7 +8,7 @@ A simple Flask API to detect spam or ham messages using following Python package
 ## Description
 The purpose of this repository is to build a web app which classifies spam and ham (non-spam) messages. The user can submit a message for classification.
 
-Message classification has been implemented by comparing several classifiers in ```bash check.py``` file.
+Message classification has been implemented by comparing several classifiers in ```check.py``` file.
 The code contains the original meta-data files with class and message labels, a python script for 
 
 
