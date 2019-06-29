@@ -556,6 +556,16 @@ As it can be seen, the text can be written in the box. By clicking ```Predict```
 
 And clicking the ```Predict``` botton, the following prediction will come up:
 
+<img width="838" alt="Screen Shot 2019-06-29 at 7 26 58 PM" src="https://user-images.githubusercontent.com/45254300/60390405-ebec7600-9aa3-11e9-8f66-221402b479ec.png">
+
+Which shows that the model predicttion is correct and the message is NOT spam.
+As another example, by writing the following message in the box:
+
+
+And clicking the ```Predict``` botton, the following prediction will come up:
+
+
+Which again shows that the model predicttion is correct and in this time, the message is SPAM.
 
 
 
