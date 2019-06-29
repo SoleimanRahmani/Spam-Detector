@@ -561,8 +561,10 @@ And clicking the ```Predict``` botton, the following prediction will come up:
 Which shows that the model predicttion is correct and the message is NOT spam.
 As another example, by writing the following message in the box:
 
+<img width="828" alt="Screen Shot 2019-06-29 at 7 30 11 PM" src="https://user-images.githubusercontent.com/45254300/60390426-61584680-9aa4-11e9-999e-924106a10f03.png">
 
 And clicking the ```Predict``` botton, the following prediction will come up:
+<img width="826" alt="Screen Shot 2019-06-29 at 7 30 17 PM" src="https://user-images.githubusercontent.com/45254300/60390427-64ebcd80-9aa4-11e9-824b-4c80addbf241.png">
 
 
 Which again shows that the model predicttion is correct and in this time, the message is SPAM.
