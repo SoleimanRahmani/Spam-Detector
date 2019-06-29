@@ -332,10 +332,10 @@ static/
         style.css
 ```
 
-The ```spam.csv``` is a collection of messages tagged as spam or ham. The ```templates``` is the directory in which Flask will look for static HTML files. The```home.html``` render an input text form where a user can enter a message and ```result.html``` shows the prediction based on the built classification model and user's input. ```style.css``` is saved in static folder which determine the look of HTML documents. ```app.py``` file contains the main machile learning code of the application that is executed by  Python interpreter to run the Flask web application. The ```check.py``` is an individual python file, added to the project folder just to demonstrate the model selection which is explained in the previous section.
+The ```spam.csv``` is a collection of messages tagged as spam or ham. The ```templates``` is the directory in which Flask will look for static HTML files. The```home.html``` render an input text form where a user can enter a message and ```result.html``` shows the prediction based on the built classification model and user's input. ```style.css``` is saved in static folder which determine the look of HTML documents. ```app.py``` file contains the main machile learning code of the application that is executed by  Python interpreter to run the Flask web application. The ```check.py``` is an individual python file, added to the project directory just to demonstrate the model selection which is explained in the previous section.
 
 ### app.py
-The app.py file is the main code executed by the Python interpreter to run the Flask web application. Inside ```app.py```, 
+The app.py file is the main code executed by the Python interpreter to run the Flask web application. The code inside ```app.py``` is explained as follows:
 
 #### Libraries
 ```python
@@ -346,7 +346,101 @@ from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics import accuracy_score
 from sklearn.naive_bayes import MultinomialNB
 ```
+#### Flask
+A Flask instance with the argument ```__name__``` is initialized to inform Flask about the HTML template folder (```templates```) which is in the same directory where it is located.
 
+
+
+In the next step, the```@app.route('/')``` which is the route decorator is used to specify the URL that should trigger the execution of the ```home``` function. The ```home``` function renders the ```home.html``` HTML file, which is located in the ```templates``` folder.
+
+```python
+app = Flask(__name__)
+@app.route('/')
+def home():
+	return render_template('home.html')
+```
+
+Inside the ```predict``` function, 
+The access to spam data set, pre-processing the text, train-test spliting, decision making (prediction) and storing the model are achieved inside the ```predict``` function. The input message, entered by the user is also used in this part to make a prediction for its label.
+
+```python
+@app.route('/predict', methods=['POST'])
+def predict():
+    df = pd.read_csv("spam.csv", encoding="latin-1")
+    df.drop(['Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4'], axis=1, inplace=True)
+    # Features and Labels
+    df['label'] = df['class'].map({'ham': 0, 'spam': 1})
+    X = df['message']
+    y = df['label']
+
+    # Extract Feature With CountVectorizer
+    cv = CountVectorizer()
+    X = cv.fit_transform(X)
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+
+    # Naive Bayes Classifier
+    clf = MultinomialNB(alpha=0.110010) #Best classification model
+    clf.fit(X_train, y_train)
+    pred = clf.predict(X_test)
+    prediction_score = round(accuracy_score(y_test, pred) * 100, 2)
+
+    if request.method == 'POST':
+        message = request.form['message']
+        data = [message]
+        vect = cv.transform(data).toarray()
+        my_prediction = clf.predict(vect)
+        return render_template('result.html', prediction=my_prediction, prediction_score=prediction_score)
+
+if __name__ == '__main__':
+    app.run(debug=True)
+```
+
+The ```POST``` method is utilized in order to transport the form data to the server in the message body. By setting the ```debug=True``` argument inside the ```app.run``` , Flask's debugger is activated. FInally, the function ```run```is used to run the application on the server while the ```if``` statement of ```__name__ == '__main__'``` is true which shows that script is directly executed by the Python interpreter.
+
+
+### home.html
+The home.html file renders a text form where a user can enter a message.
+```python
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+	<header>
+		<div class="container">
+		<div id="brandname">
+			<h1  style="color:blue;" align="center">Spam Detector</h1>
+		</div>
+		<h2 style="color:black;" align="center">Machine Learning App with Flask API to submit data for classification</h2>
+	</div >
+	</header>
+	<div class="ml-container" style="background-color:lightblue" align="center">
+		<form action="{{ url_for('predict')}}" method="POST">
+		<p>Enter Your Message Here Please:</p>
+		<textarea name="message" rows="4" cols="50"></textarea>
+		<br/>
+		<button type="submit" class="btn btn-primary">Predict</button>
+	</form>
+	</div>
+</body>
+</html>
+```
+
+The ```home.html``` is used in ```app.py``` according to the following code:
+
+```python
+@app.route('/')
+def home():
+	return render_template('home.html')
+```
+
+### result.HTML
+The ```result.html``` file is rendered via ```the render_template('result.html', prediction=my_prediction)``` line return inside the ```predict``` function, which is defined in the ```app.py``` script to display the text that a user submitted via the text field. The ```result.html```file contains the following content:
+
+
+### styles.CSS
 
 
 <img width="824" alt="Screen Shot 2019-06-26 at 8 35 22 PM" src="https://user-images.githubusercontent.com/45254300/60224871-5a39fa00-9852-11e9-96ac-33d915bdd4a0.png">
