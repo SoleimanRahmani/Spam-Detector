@@ -1,11 +1,11 @@
 # Spam-Detector
 A simple Flask API to detect spam or ham using Python and sklearn
 
-Sklearn
-Pandas
-Text Extraction
+* Sklearn
+* Pandas
+* Text Extraction
 
-Description
+## Description
 The purpose of this repository is to assist readers in classifying spam and ham (non-spam) messages.
 
 Message classification has been implemented by comparing several classifiers in check.py file.
@@ -17,5 +17,20 @@ The code contains the original meta-data files with class and message labels, a 
 
 
 
+
+
+```bash
+pip install foobar
+```
+
+## Usage
+
+```python
+import foobar
+
+foobar.pluralize('word') # returns 'words'
+foobar.pluralize('goose') # returns 'geese'
+foobar.singularize('phenomena') # returns 'phenomenon'
+```
 
 
