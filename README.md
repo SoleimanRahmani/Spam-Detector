@@ -34,12 +34,18 @@ from sklearn.metrics import accuracy_score, confusion_matrix
 ```python
 df = pd.read_csv("spam.csv", encoding="latin-1")
 df.drop(['Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4'], axis=1, inplace=True)
-# Features and Labels
+```
+
+### Features and Labels
+
+```python
 df['label'] = df['class'].map({'ham': 0, 'spam': 1})
 X = df['message']
 y = df['label']
 ```
-And the dataset is as follows:
+
+And part of dataset is as follows:
+
 ```python
  class                                            message  label
 0   ham  Go until jurong point, crazy.. Available only ...      0
@@ -53,6 +59,31 @@ And the dataset is as follows:
 8  spam  WINNER!! As a valued network customer you have...      1
 9  spam  Had your mobile 11 months or more? U R entitle...      1
 ```
+
+### # Extract Feature With CountVectorizer
+
+```python
+
+cv = CountVectorizer()
+X = cv.fit_transform(X)  # Fit the Data
+
+```
+
+### split our data set in training set and test set
+
+```python
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
+print([np.shape(X_train),np.shape(y_train), np.shape(X_test),np.shape(y_test)])
+```
+```python
+[(3900, 8672), (3900,), (1672, 8672), (1672,)]
+```
+
+
+
+
+
+
 
 The machine learning methods that used in ```check.py``` file are:
 
