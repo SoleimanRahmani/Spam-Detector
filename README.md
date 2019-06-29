@@ -525,6 +525,7 @@ header h2{
     height: 150px;
 }
 ```
+## Web Page
 
 All the files in the directory is explained above. THe next step is to runthe API by executing the following command in the Terminal:
 
@@ -548,6 +549,8 @@ Now by openning the web browser and navigating to http://127.0.0.1:5000/, a  web
 
 <img width="824" alt="Screen Shot 2019-06-26 at 8 35 22 PM" src="https://user-images.githubusercontent.com/45254300/60224871-5a39fa00-9852-11e9-96ac-33d915bdd4a0.png">
 
+
+As it can be seen, the text can be written in the box. By clicking ```Predict``` botton, the prediction will show up. For instance, by writing the following message in the box:
 
 
 
