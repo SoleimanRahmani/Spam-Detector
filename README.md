@@ -142,6 +142,8 @@ for clf in classifiers:
 And the result is as follows:
 
 ```python
+Output:
+
 Accuracy of XGBClassifier(base_score=0.5, booster='gbtree', colsample_bylevel=1,
        colsample_bynode=1, colsample_bytree=1, gamma=0, learning_rate=0.1,
        max_delta_step=0, max_depth=3, min_child_weight=1, missing=None,
@@ -299,13 +301,10 @@ Hence, the best model is obtained and its confusion matrix is shown below:
 best_index = models[models['Test Precision']>=0.9]['Test Accuracy'].idxmax()
 bayes = MultinomialNB(alpha=list_alpha[best_index])
 bayes.fit(X_train, y_train)
-print(models.iloc[best_index, :])
-
 
 m_confusion_test = metrics.confusion_matrix(y_test, bayes.predict(X_test))
 print(pd.DataFrame(data = m_confusion_test, columns = ['Predicted 0', 'Predicted 1'],
             index = ['Actual 0', 'Actual 1']))
-
 ```
 ```python
 Output:
@@ -314,20 +313,26 @@ Actual 0         1435           18
 Actual 1           15          204
 
 ```
+The best model is Naive Bayes with 98% accuracy. It classifies 91% of non-spam messages correctly (Model precision) and classifies the 93% of spam messages correctly (Model recall).
 
+## Web Application
 
+In the previous section, the code for classifying messages has been developed. In this section, a web application is developed that consists of a web page with a form field that let users enter a message. After submitting the message to the web application, it will render it on a new page which gives us a result of spam or not spam.
 
-In the second step, 
-
-
-
-
-
-
+First, we create a folder for this project called ```Spam-Detector```. The folder is as follows:
 
 ```bash
-pip install foobar
+spam.csv
+app.py
+templates/
+        home.html
+        result.html
+static/
+        style.css
 ```
+
+
+
 
 ## Usage
 
