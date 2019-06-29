@@ -574,12 +574,12 @@ Which again shows that the model predicttion is correct and in this time, the me
 
 
 ### create a new repository on the command line
-echo "# Spam-Detector" >> README.md
-git init
-git add README.md
-git commit -m "Spam Detector files"
-git remote add origin https://github.com/SoleimanRahmani/Spam-Detector.git
-git push -u origin master
+* echo "# Spam-Detector" >> README.md
+* git init
+* git add README.md
+* git commit -m "Spam Detector files"
+* git remote add origin https://github.com/SoleimanRahmani/Spam-Detector.git
+* git push -u origin master
 
 
 
