@@ -10,7 +10,7 @@ The purpose of this repository is to build a web app which classifies spam or ha
 
 
 ## 1. Building Machine Learning Model
-In the first step, several message classifiers have been implemented and compared in ```check.py``` file. The original meta-data file is a collection of messages tagged as spam or ham that can be found in Keggle. The goal in this stage is to use this dataset to build a prediction model that will accurately classify which texts are spam or ham.
+In the first step, several machile learning classifiers have been implemented and compared in ```check.py``` file. The original meta-data file is a collection of messages tagged as spam or ham that can be found in Keggle. The goal in this stage is to use this dataset to build a prediction model that will accurately classify which texts as spam or ham.
 
 ### Libraries
 
@@ -144,81 +144,43 @@ And the result is as follows:
 ```python
 Output:
 
-Accuracy of XGBClassifier(base_score=0.5, booster='gbtree', colsample_bylevel=1,
-       colsample_bynode=1, colsample_bytree=1, gamma=0, learning_rate=0.1,
-       max_delta_step=0, max_depth=3, min_child_weight=1, missing=None,
-       n_estimators=100, n_jobs=1, nthread=None,
-       objective='binary:logistic', random_state=0, reg_alpha=0,
-       reg_lambda=1, scale_pos_weight=1, seed=None, silent=None,
-       subsample=1, verbosity=1) is 0.965311004784689
+Accuracy of XGBClassifier is 0.965311004784689
 
-Confusion Matrix of XGBClassifier(base_score=0.5, booster='gbtree', colsample_bylevel=1,
-       colsample_bynode=1, colsample_bytree=1, gamma=0, learning_rate=0.1,
-       max_delta_step=0, max_depth=3, min_child_weight=1, missing=None,
-       n_estimators=100, n_jobs=1, nthread=None,
-       objective='binary:logistic', random_state=0, reg_alpha=0,
-       reg_lambda=1, scale_pos_weight=1, seed=None, silent=None,
-       subsample=1, verbosity=1) is 
-       [[1446    7]
-       [  51  168]]
+Confusion Matrix of XGBClassifier is 
+[[1446    7]
+[  51  168]]
 
 
 
-Accuracy of SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
-  decision_function_shape='ovr', degree=3, gamma='auto_deprecated',
-  kernel='rbf', max_iter=-1, probability=False, random_state=None,
-  shrinking=True, tol=0.001, verbose=False) is 0.8690191387559809
+Accuracy of SVC is 0.8690191387559809
 
-Confusion Matrix of SVC(C=1.0, cache_size=200, class_weight=None, coef0=0.0,
-  decision_function_shape='ovr', degree=3, gamma='auto_deprecated',
-  kernel='rbf', max_iter=-1, probability=False, random_state=None,
-  shrinking=True, tol=0.001, verbose=False) is 
-       [[1453    0]
-       [ 219    0]]
+Confusion Matrix of SVC is 
+[[1453    0]
+[ 219    0]]
 
 
 
-Accuracy of DecisionTreeClassifier(class_weight=None, criterion='gini', max_depth=None,
-            max_features=None, max_leaf_nodes=None,
-            min_impurity_decrease=0.0, min_impurity_split=None,
-            min_samples_leaf=1, min_samples_split=2,
-            min_weight_fraction_leaf=0.0, presort=False, random_state=None,
-            splitter='best') is 0.9659090909090909
+Accuracy of DecisionTreeClassifier is 0.9659090909090909
 
-Confusion Matrix of DecisionTreeClassifier(class_weight=None, criterion='gini', max_depth=None,
-            max_features=None, max_leaf_nodes=None,
-            min_impurity_decrease=0.0, min_impurity_split=None,
-            min_samples_leaf=1, min_samples_split=2,
-            min_weight_fraction_leaf=0.0, presort=False, random_state=None,
-            splitter='best') is 
-            [[1430   23]
-            [  34  185]]
+Confusion Matrix of DecisionTreeClassifier is 
+[[1430   23]
+[  34  185]]
 
 
 
-Accuracy of RandomForestClassifier(bootstrap=True, class_weight=None, criterion='gini',
-            max_depth=None, max_features='auto', max_leaf_nodes=None,
-            min_impurity_decrease=0.0, min_impurity_split=None,
-            min_samples_leaf=1, min_samples_split=2,
-            min_weight_fraction_leaf=0.0, n_estimators=50, n_jobs=None,
-            oob_score=True, random_state=42, verbose=0, warm_start=False) is 0.9730861244019139
+Accuracy of RandomForestClassifier is 0.9730861244019139
 
-Confusion Matrix of RandomForestClassifier(bootstrap=True, class_weight=None, criterion='gini',
-            max_depth=None, max_features='auto', max_leaf_nodes=None,
-            min_impurity_decrease=0.0, min_impurity_split=None,
-            min_samples_leaf=1, min_samples_split=2,
-            min_weight_fraction_leaf=0.0, n_estimators=50, n_jobs=None,
-            oob_score=True, random_state=42, verbose=0, warm_start=False) is 
-            [[1452    1]
-            [  44  175]]
+Confusion Matrix of RandomForestClassifier is 
+[[1452    1]
+[  44  175]]
 
 
 
-Accuracy of MultinomialNB(alpha=1.0, class_prior=None, fit_prior=True) is 0.9784688995215312
+Accuracy of MultinomialNB is 0.9784688995215312
 
-Confusion Matrix of MultinomialNB(alpha=1.0, class_prior=None, fit_prior=True) is 
+Confusion Matrix of MultinomialNB is 
 [[1435   18]
- [  18  201]]
+[  18  201]]
 
 ```
 As it can be seen, best accuracy is achieved with the popular statistical technique, Naive Bayes classifier.
