@@ -14,6 +14,20 @@ In the first step, several message classifiers have been implemented and compare
 
 ### Libraries
 
+```python
+import pandas as pd
+import numpy as np
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.tree import tree
+from mleap.sklearn import svm
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier
+import xgboost as xgboost
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.model_selection import train_test_split
+from sklearn import metrics
+from sklearn.metrics import accuracy_score, confusion_matrix
+```
 
 The machine learning methods that used in ```check.py``` file are:
 
