@@ -12,6 +12,9 @@ The purpose of this repository is to build a web app which classifies spam or ha
 ## Building Machine Learning Model
 In the first step, several message classifiers have been implemented and compared in ```check.py``` file. The original meta-data file is a collection of messages tagged as spam or ham that can be found in Keggle. The goal in this stage is to use this dataset to build a prediction model that will accurately classify which texts are spam or ham.
 
+### Libraries
+
+
 The machine learning methods that used in ```check.py``` file are:
 
 * gradient boosting Classifier
