@@ -184,7 +184,7 @@ Confusion Matrix of MultinomialNB is
 
 ```
 As it can be seen, best accuracy is achieved with the popular statistical technique, Naive Bayes classifier.
-In order to obtain the best Naive Bayes model, different models are trained hanging the regularization parameter (α) and the accuracy, recall and precision of the model with the test set are evaluated.
+In order to obtain the best Naive Bayes model, different models are trained changing the regularization parameter (α) and the accuracy, recall and precision of the model with the test set are evaluated.
 
 ```python
 
@@ -242,7 +242,7 @@ Test Recall       0.931507
 Test Precision    0.918919
 Name: 1, dtype: float64
 ````
-Below, the model with test precision higher than 90% and highest test accuracies is shown:
+I want the model with high precision and test accuracy. Below, the model with test precision higher than 90% and highest test accuracies is shown:
 
 ```python
 best_index = models[models['Test Precision']>=0.9]['Test Accuracy'].idxmax()
@@ -282,6 +282,8 @@ The best model is Naive Bayes with 98% accuracy. It classifies 91% of non-spam m
 In the previous section, the code for classifying messages has been developed. In this section, a web application is developed that consists of a web page with a form field that let users enter a message. After submitting the message to the web application, it will render it on a new page which gives us a result of spam or not spam.
 
 First, we create a folder for this project called ```Spam-Detector```. The folder is as follows:
+
+<img width="259" alt="Screen Shot 2019-06-29 at 7 55 54 PM" src="https://user-images.githubusercontent.com/45254300/60390586-0e808e00-9aa8-11e9-8ea6-3ec797a47eef.png">
 
 ```bash
 spam.csv
