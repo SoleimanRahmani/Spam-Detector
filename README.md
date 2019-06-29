@@ -29,6 +29,31 @@ from sklearn import metrics
 from sklearn.metrics import accuracy_score, confusion_matrix
 ```
 
+### Exploring the Dataset
+
+```python
+df = pd.read_csv("spam.csv", encoding="latin-1")
+df.drop(['Unnamed: 2', 'Unnamed: 3', 'Unnamed: 4'], axis=1, inplace=True)
+# Features and Labels
+df['label'] = df['class'].map({'ham': 0, 'spam': 1})
+X = df['message']
+y = df['label']
+```
+And the dataset is as follows:
+```python
+ class                                            message  label
+0   ham  Go until jurong point, crazy.. Available only ...      0
+1   ham                      Ok lar... Joking wif u oni...      0
+2  spam  Free entry in 2 a wkly comp to win FA Cup fina...      1
+3   ham  U dun say so early hor... U c already then say...      0
+4   ham  Nah I don't think he goes to usf, he lives aro...      0
+5  spam  FreeMsg Hey there darling it's been 3 week's n...      1
+6   ham  Even my brother is not like to speak with me. ...      0
+7   ham  As per your request 'Melle Melle (Oru Minnamin...      0
+8  spam  WINNER!! As a valued network customer you have...      1
+9  spam  Had your mobile 11 months or more? U R entitle...      1
+```
+
 The machine learning methods that used in ```check.py``` file are:
 
 * gradient boosting Classifier
