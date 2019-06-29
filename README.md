@@ -437,10 +437,102 @@ def home():
 ```
 
 ### result.HTML
-The ```result.html``` file is rendered via ```the render_template('result.html', prediction=my_prediction)``` line return inside the ```predict``` function, which is defined in the ```app.py``` script to display the text that a user submitted via the text field. The ```result.html```file contains the following content:
+The ```result.html```file is the page where the prediction of the user's input will be shown. The ```result.html``` contains the following content:
+```python
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+	<header>
+		<div class="container">
+		<div id="brandname">
+			<h1  style="color:blue;" align="center">Spam Detector</h1>
+		</div>
+		<h2 style="color:black;" align="center">Machine Learning App with Flask API to submit data for classification</h2>
+	    </div>
+	</header>
+	<p style=color:"blue" font-size=20 text-align="center" align="center"><b>Result of prediction:</b></p>
+	<div class="results"  style="background-color:lightblue" align="center">
+	{% if prediction == 1%}
+	<h2 style="color:red;" align="center">Message is Spam!</h2>
+	{% elif prediction == 0%}
+	<h2 style="color:blue;" align="center">This Message is NOT Spam</h2>
+	{% endif %}
+	</div>
+	<div class="alert alert-info" role="alert" align="center" style="background-color:lightblue">
+		<p><span style="color:red"  type=number step=0.01>Prediction Score is:</span>: {{ prediction_score }} %</p>
+	</div>
+</body>
+</html>
+```
 
+The ```result.html``` file is defined in the ```app.py``` script and is rendered via ```the render_template('result.html', prediction=my_prediction)``` line which is returned inside the ```predict``` function. The ```{% if prediction ==1%},{% elif prediction == 0%},{% endif %}```in ```result.htm``` script is used to access the prediction returned from our HTTP request within the HTML file.
 
 ### styles.CSS
+
+The ```styles.css``` file is used in the header section of ```home.html``` and ```result.html``` which determines the shape of these HTML documents. The ```styles.css``` contains the following content:
+
+```python
+body{
+	font:15px/1.5 Arial, Helvetica,sans-serif;
+	padding: 0px;
+	background-color:Blue;
+}
+.container{
+	width:100%;
+	margin: auto;
+	overflow: hidden;
+}
+
+header{
+	background:#03A9F4;#35434a;
+	border-bottom:#448AFF 3px solid;
+	height:120px;
+	width:100%;
+	padding-top:30px;
+}
+.main-header{
+			text-align:center;
+			background-color: blue;
+			height:100px;
+			width:100%;
+			margin:0px;
+		}
+#brandname{
+	float:left;
+	font-size:300px;
+	color: #fff;
+	margin: 10px;
+}
+header h2{
+	text-align:center;
+	color:#fff;
+}
+.btn-info {background-color: #2196F3;
+	height:40px;
+	width:100px;} /* Blue */
+.btn-info:hover {background: #0b7dda;}
+
+
+.resultss{
+	border-radius: 15px 50px;
+    background: #345fe4;
+    padding: 20px; 
+    width: 200px;
+    height: 150px;
+}
+```
+
+All the files in the directory is explained above. THe next step is to runthe API by executing the following command in the Terminal:
+
+```
+cd SMS-Message-Spam-Detector
+python app.py
+You should get the following output:
+```
 
 
 <img width="824" alt="Screen Shot 2019-06-26 at 8 35 22 PM" src="https://user-images.githubusercontent.com/45254300/60224871-5a39fa00-9852-11e9-96ac-33d915bdd4a0.png">
