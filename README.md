@@ -332,14 +332,20 @@ static/
         style.css
 ```
 
-
-The ```templates``` is the directory in which Flask will look for static HTML files. ```home.html``` and ```result.html```.
+The ```spam.csv``` is a collection of messages tagged as spam or ham. The ```templates``` is the directory in which Flask will look for static HTML files. The```home.html``` render an input text form where a user can enter a message and ```result.html``` shows the prediction based on the built classification model and user's input. ```style.css``` is saved in static folder which determine the look of HTML documents. ```app.py``` file contains the main machile learning code of the application that is executed by  Python interpreter to run the Flask web application. The ```check.py``` is an individual python file, added to the project folder just to demonstrate the model selection which is explained in the previous section.
 
 ### app.py
-The app.py file contains the main code that will be executed by the Python interpreter to run the Flask web application, it included the ML code for classifying SMS messages:
+The app.py file is the main code executed by the Python interpreter to run the Flask web application. Inside ```app.py```, 
 
-
-
+#### Libraries
+```python
+from flask import Flask, render_template, url_for, request
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.feature_extraction.text import CountVectorizer
+from sklearn.metrics import accuracy_score
+from sklearn.naive_bayes import MultinomialNB
+```
 
 
 
