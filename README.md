@@ -324,6 +324,7 @@ First, we create a folder for this project called ```Spam-Detector```. The folde
 ```bash
 spam.csv
 app.py
+check.py
 templates/
         home.html
         result.html
@@ -332,17 +333,11 @@ static/
 ```
 
 
+The ```templates``` is the directory in which Flask will look for static HTML files. ```home.html``` and ```result.html```.
 
+### app.py
+The app.py file contains the main code that will be executed by the Python interpreter to run the Flask web application, it included the ML code for classifying SMS messages:
 
-## Usage
-
-```python
-import foobar
-
-foobar.pluralize('word') # returns 'words'
-foobar.pluralize('goose') # returns 'geese'
-foobar.singularize('phenomena') # returns 'phenomenon'
-```
 
 
 
