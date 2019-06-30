@@ -28,6 +28,7 @@ from sklearn.naive_bayes import MultinomialNB
 from sklearn.model_selection import train_test_split
 from sklearn import metrics
 from sklearn.metrics import accuracy_score, confusion_matrix
+from sklearn.externals import joblib
 ```
 
 ### Exploring the Dataset
@@ -278,12 +279,11 @@ Actual 1           15          204
 ```
 The best model is Naive Bayes with 98% accuracy. It classifies 91% of non-spam messages correctly (Model precision) and classifies the 93% of spam messages correctly (Model recall).
 
-## persist model in a standard format
+## Persist model in a standard format
 
 After training the model,  to persist the model for future use without having to retrain, the following lines are added to save the model as a .pkl file for the later use.
 
 ```python
-from sklearn.externals import joblib
 joblib.dump(bayes, 'NB_spam_model.pkl')
 ```
 Thereafter, the model can be loaded and used later on using the following code:
@@ -298,8 +298,7 @@ In the previous section, the code for classifying messages has been developed. I
 
 First, we create a folder for this project called ```Spam-Detector```. The folder is as follows:
 
-<img width="259" alt="Screen Shot 2019-06-29 at 7 55 54 PM" src="https://user-images.githubusercontent.com/45254300/60390586-0e808e00-9aa8-11e9-8ea6-3ec797a47eef.png">
-
+<img width="446" alt="Screen Shot 2019-06-29 at 8 29 59 PM" src="https://user-images.githubusercontent.com/45254300/60390796-bd26cd80-9aac-11e9-9345-9155a886253e.png">
 
 The ```spam.csv``` is a collection of messages tagged as spam or ham. The ```templates``` is the directory in which Flask will look for static HTML files. The```home.html``` render an input text form where a user can enter a message and ```result.html``` shows the prediction based on the built classification model and user's input. ```style.css``` is saved in static folder which determine the look of HTML documents. ```app.py``` file contains the main machile learning code of the application that is executed by  Python interpreter to run the Flask web application. The ```check.py``` is an individual python file, added to the project directory just to demonstrate the model selection which is explained in the previous section.
 
@@ -314,6 +313,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.feature_extraction.text import CountVectorizer
 from sklearn.metrics import accuracy_score
 from sklearn.naive_bayes import MultinomialNB
+from sklearn.externals import joblib
 ```
 #### Flask
 A Flask instance with the argument ```__name__``` is initialized to inform Flask about the HTML template folder (```templates```) which is in the same directory where it is located.
