@@ -4,6 +4,7 @@ A simple Flask API to detect spam or ham messages using following Python package
 * Sklearn
 * Pandas
 * Text Extraction
+* Flask
 
 ## Description
 The purpose of this repository is to build a web app which classifies spam or ham (non-spam) messages. At first, the best offline machine learning model  is built. The next step is to make the model available as a service by creating an API for the model using Flask. Finally, use the service to predict online where the user can submit a message for classification.
@@ -285,16 +286,6 @@ First, we create a folder for this project called ```Spam-Detector```. The folde
 
 <img width="259" alt="Screen Shot 2019-06-29 at 7 55 54 PM" src="https://user-images.githubusercontent.com/45254300/60390586-0e808e00-9aa8-11e9-8ea6-3ec797a47eef.png">
 
-```bash
-spam.csv
-app.py
-check.py
-templates/
-        home.html
-        result.html
-static/
-        style.css
-```
 
 The ```spam.csv``` is a collection of messages tagged as spam or ham. The ```templates``` is the directory in which Flask will look for static HTML files. The```home.html``` render an input text form where a user can enter a message and ```result.html``` shows the prediction based on the built classification model and user's input. ```style.css``` is saved in static folder which determine the look of HTML documents. ```app.py``` file contains the main machile learning code of the application that is executed by  Python interpreter to run the Flask web application. The ```check.py``` is an individual python file, added to the project directory just to demonstrate the model selection which is explained in the previous section.
 
