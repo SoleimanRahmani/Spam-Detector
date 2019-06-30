@@ -300,7 +300,7 @@ First, we create a folder for this project called ```Spam-Detector```. The folde
 
 <img width="446" alt="Screen Shot 2019-06-29 at 8 29 59 PM" src="https://user-images.githubusercontent.com/45254300/60390796-bd26cd80-9aac-11e9-9345-9155a886253e.png">
 
-The ```spam.csv``` is a collection of messages tagged as spam or ham. The ```templates``` is the directory in which Flask will look for static HTML files. The```home.html``` render an input text form where a user can enter a message and ```result.html``` shows the prediction based on the built classification model and user's input. ```style.css``` is saved in static folder which determine the look of HTML documents. ```app.py``` file contains the main machile learning code of the application that is executed by  Python interpreter to run the Flask web application. The ```check.py``` is an individual python file, added to the project directory just to demonstrate the model selection which is explained in the previous section.
+The ```spam.csv``` is a collection of messages tagged as spam or ham. The ```templates``` is the directory in which Flask will look for static HTML files. The```home.html``` render an input text form where a user can enter a message and ```result.html``` shows the prediction based on the built classification model and user's input. ```style.css``` is saved in static folder which determine the look of HTML documents. ```app.py``` file contains the main machile learning code of the application that is executed by  Python interpreter to run the Flask web application. The ```check.py``` is an individual python file, added to the project directory just to demonstrate the model selection which is explained in the previous section. The ```NB_spam_model.pkl``` is the saved Naive Bayes Classifier model which is saved a a .pkl file and stored in ```models``` folder.
 
 ### app.py
 The app.py file is the main code executed by the Python interpreter to run the Flask web application. The code inside ```app.py``` is explained as follows:
@@ -367,12 +367,12 @@ if __name__ == '__main__':
 
 The ```POST``` method is utilized in order to transport the form data to the server in the message body. By setting the ```debug=True``` argument inside the ```app.run``` , Flask's debugger is activated. FInally, the function ```run```is used to run the application on the server while the ```if``` statement of ```__name__ == '__main__'``` is true which shows that script is directly executed by the Python interpreter.
 
-Note that, the machine learning model built in ```check.py``` is loaded and used by using the following code:
+Note that, the machine learning model built in ```check.py``` was saved as .pkl file and is loaded and used by using the following code:
 ```python
 NB_spam_model = open('models/NB_spam_model.pkl', 'rb')
 clf = joblib.load(NB_spam_model) write the 
 ```
-Another method for using the method was to simply write the commented code ``` #clf = MultinomialNB(alpha=0.110010) #Best classification model ```.
+Another method for using the saved machine learning method was to simply write the commented code ``` #clf = MultinomialNB(alpha=0.110010) #Best classification model ```.
 
 ### home.html
 The home.html file renders a text form where a user can enter a message.
@@ -503,7 +503,7 @@ header h2{
 ```
 ## 3. Web Page Test
 
-All the files in the directory is explained above. THe next step is to runthe API by executing the following command in the Terminal:
+All the files in the directory is explained above. The next step is to runthe API by executing the following command in the Terminal:
 
 ```
 cd Spam-Detector
@@ -549,7 +549,7 @@ Which again shows that the model predicttion is correct and in this time, the me
 ## Pushing the file to Git repository
 
 
-### create a new repository on the command line
+## To create a new repository on the command line, the following commands have been executed in the Terminal:
 * echo "# Spam-Detector" >> README.md
 * git init
 * git add README.md
