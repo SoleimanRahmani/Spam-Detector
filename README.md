@@ -278,6 +278,20 @@ Actual 1           15          204
 ```
 The best model is Naive Bayes with 98% accuracy. It classifies 91% of non-spam messages correctly (Model precision) and classifies the 93% of spam messages correctly (Model recall).
 
+## persist model in a standard format
+
+After training the model,  to persist the model for future use without having to retrain, the following lines are added to save the model as a .pkl file for the later use.
+
+```python
+from sklearn.externals import joblib
+joblib.dump(bayes, 'NB_spam_model.pkl')
+```
+Thereafter, the model can be loaded and used later on using the following code:
+```python
+NB_spam_model = open('models/NB_spam_model.pkl','rb')
+clf = joblib.load(NB_spam_model)
+```
+
 ## 2. Web Application
 
 In the previous section, the code for classifying messages has been developed. In this section, a web application is developed that consists of a web page with a form field that let users enter a message. After submitting the message to the web application, it will render it on a new page which gives us a result of spam or not spam.
@@ -315,7 +329,6 @@ def home():
 	return render_template('home.html')
 ```
 
-Inside the ```predict``` function, 
 The access to spam data set, pre-processing the text, train-test spliting, decision making (prediction) and storing the model are achieved inside the ```predict``` function. The input message, entered by the user is also used in this part to make a prediction for its label.
 
 ```python
@@ -334,7 +347,9 @@ def predict():
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
     # Naive Bayes Classifier
-    clf = MultinomialNB(alpha=0.110010) #Best classification model
+    #clf = MultinomialNB(alpha=0.110010) #Best classification model
+    NB_spam_model = open('models/NB_spam_model.pkl', 'rb')
+    clf = joblib.load(NB_spam_model)
     clf.fit(X_train, y_train)
     pred = clf.predict(X_test)
     prediction_score = round(accuracy_score(y_test, pred) * 100, 2)
@@ -352,6 +367,12 @@ if __name__ == '__main__':
 
 The ```POST``` method is utilized in order to transport the form data to the server in the message body. By setting the ```debug=True``` argument inside the ```app.run``` , Flask's debugger is activated. FInally, the function ```run```is used to run the application on the server while the ```if``` statement of ```__name__ == '__main__'``` is true which shows that script is directly executed by the Python interpreter.
 
+Note that, the machine learning model built in ```check.py``` is loaded and used by using the following code:
+```python
+NB_spam_model = open('models/NB_spam_model.pkl', 'rb')
+clf = joblib.load(NB_spam_model) write the 
+```
+Another method for using the method was to simply write the commented code ``` #clf = MultinomialNB(alpha=0.110010) #Best classification model ```.
 
 ### home.html
 The home.html file renders a text form where a user can enter a message.
