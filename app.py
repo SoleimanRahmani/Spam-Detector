@@ -29,9 +29,9 @@ def predict():
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.3, random_state=42)
 
     # Naive Bayes Classifier
-    #clf = MultinomialNB(alpha=0.110010) #Best classification model
-    NB_spam_model = open('models/NB_spam_model.pkl', 'rb')
-    clf = joblib.load(NB_spam_model)
+    clf = MultinomialNB(alpha=0.110010) #Best classification model
+    #NB_spam_model = open('models/NB_spam_model.pkl', 'rb')
+    #clf = joblib.load(NB_spam_model)
     clf.fit(X_train, y_train)
     pred = clf.predict(X_test)
     prediction_score = round(accuracy_score(y_test, pred) * 100, 2)
