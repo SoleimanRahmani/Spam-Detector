@@ -549,7 +549,7 @@ Which again shows that the model predicttion is correct and in this time, the me
 ## Pushing the file to Git repository
 
 
-## To create a new repository on the command line, the following commands have been executed in the Terminal:
+#### To create a new repository on the command line, the following commands have been executed in the Terminal:
 * echo "# Spam-Detector" >> README.md
 * git init
 * git add README.md
